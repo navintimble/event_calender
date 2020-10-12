@@ -1,0 +1,86 @@
+.calendar {
+    width: 98%;
+    margin: auto;
+    font-size: 13px;
+  }
+  
+  .calendar tr, .calendar td {
+    border: 1px solid black;
+  }
+  
+  .calendar th {
+    padding: 10px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background: #9675ce !important;
+    color: #FFF;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    
+  }
+.calendar  td ul li{ list-style-type: none; }
+
+.calendar  td ul li { font-family: 'Roboto', sans-serif;
+    background: #03a9f3!important;
+    color: #FFF!important;
+    font-size: 12px!important;
+    font-weight: 500!important;
+    padding: 5px 10px!important; }
+ .calendar  td ul li a { font-family: 'Roboto', sans-serif;
+   
+    color: #FFF!important; }
+  
+  .calendar td {
+    width: 108px;
+    height: 80px;
+    padding: 20px 0px 0px 5px;
+  }
+  
+  .month {
+    font-size: 25px;
+  }
+  
+  .date {
+    font-size: 16px;
+  }
+  
+  ul {
+    height: 100%;
+    padding: 0px 5px 0px 20px;
+  }
+  
+  a {
+    color: #17a2b8;
+  }
+
+  .left {
+    float: left;
+  }
+  
+  .right {
+    float: right;
+  }
+  
+  .btn {
+    outline: none;
+    color: black;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+  }
+  
+  .clearfix {
+    margin: 15px;
+  }
+
+  .form {
+    margin: auto;
+  }
+  
+  .form input, .form select, .form textarea {
+    border-radius: 5px;
+    border: 1px solid #17a2b8;
+    outline: none;
+    background: none;
+    padding: 5px;
+    width: 100%;
+  }

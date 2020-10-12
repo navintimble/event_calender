@@ -1,0 +1,103 @@
+{% extends 'front/base.html' %}
+{% block body %}
+{% load static %}
+<main>
+   <div class="container-fluid">
+      <h4 class="mt-4">Dashboard</h4>
+      <ol class="breadcrumb mb-4">
+         <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+      <div class="row">
+         <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+               <div class="card-body">Primary Card</div>
+               <div class="card-footer d-flex align-items-center justify-content-between">
+                  <a class="small text-white stretched-link" href="#">View Details</a>
+                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+               <div class="card-body">Warning Card</div>
+               <div class="card-footer d-flex align-items-center justify-content-between">
+                  <a class="small text-white stretched-link" href="#">View Details</a>
+                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+               <div class="card-body">Success Card</div>
+               <div class="card-footer d-flex align-items-center justify-content-between">
+                  <a class="small text-white stretched-link" href="#">View Details</a>
+                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+               <div class="card-body">Danger Card</div>
+               <div class="card-footer d-flex align-items-center justify-content-between">
+                  <a class="small text-white stretched-link" href="#">View Details</a>
+                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="card mb-4">
+         <div class="card-header d-flex align-items-center justify-content-between">
+            <div> <i class="fas fa-table mr-1"></i>
+            DataTable Example</div>
+           <div> <a class="btn btn-primary" href="{%  url 'addnew' %}">Add New  </a>  </div>
+
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <td>epassword</td>
+                        <th>Image</th>
+                        <th>Date</th>
+                        <th>eemail</th>
+                        <th>emobileno</th>
+                        <th>Action</th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+
+                  {% for emp in allUsersdata %}
+
+
+                     <tr>
+                        <td> {{ forloop.counter }} </td>
+                        <td>{{emp.ename}}</td>
+                        <td>{{emp.epassword}}</td>
+                        <td><img src="{{emp.eimg}}">  </td>
+                        <td>{{emp.edate}}</td>
+                        <td>{{emp.eemail}}</td>
+                        <td>{{emp.emobileno}}</td>
+
+                        <td> <a  href="/edituser/{{emp.eid}}"  class="btn btn-warning"  > <i class="fa fa-pencil " ></i>   Edit </a>
+
+                           <a  href="/investdata/{{emp.eid}}"  class="btn btn-warning"  > <i class="fa fa-eye " ></i>   Invest Table </a>
+
+                           <form class="d-inline" action="" method="post" >
+                              <a  href="/deletedata/{{emp.eid}}"    class="btn btn-danger" type="submit"   > <i class="fa fa-trash" ></i>  Delete </a>
+                           </form>
+                            </td>
+                     </tr>
+                  {% endfor %}
+
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>
+{% endblock %}

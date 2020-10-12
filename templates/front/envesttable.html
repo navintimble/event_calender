@@ -1,0 +1,84 @@
+{% extends 'front/base.html' %}
+{% block body %}
+{% load static %}
+<main>
+   <div class="container-fluid mt-5">
+      <div class="card border-primary mb-3" >
+         <div class="card-header">
+            <h5 class="card-title mb-0">Add New Invest</h5>
+         </div>
+         <div class="card-body text-primary">
+            <div class="form-row ">
+               <form method="post" action="/addnewinvest/" style="width:100%;">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-sm-3">
+                        <div class="form-group">
+                           <input class="form-control" type="date"  name="invdate" placeholder="" required>
+                        </div>
+                     </div>
+                     <div class="col-sm-3">
+                        <div class="form-group">
+                           <input class="form-control" type="text"  name="invpayd" placeholder="Payment Details" required>
+                        </div>
+                     </div>
+                     <div class="col-sm-3">
+                        <div class="form-group">
+                           <input class="form-control" type="text"  name="invrs" placeholder="Rupye" required>
+                        </div>
+                     </div>
+                     <div class="col-sm-3">
+                        <div class="form-group">
+                           <input class=" btn btn-info " type="submit"  value="Submit" >
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid">
+      <div class="card mb-4">
+         <div class="card-header">
+            <i class="fas fa-user mr-1"></i>
+            <b>{{ user.get_username }}</b>
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                     <tr>
+                        <th>#</th>
+                        <th>Date</th>
+                        <th>Payment Details </th>
+                        <th>Rupye</th>
+                        <th>Action</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {% for invt in allInvest %}
+
+                     <tr>
+                        <td> {{ forloop.counter }} </td>
+                        <td>{{invt.invdate}}</td>
+                        <td>{{invt.invpayd}}</td>
+                        <td>{{invt.invrs}}</td>
+
+                        <td> <a  href="#"  class="btn btn-warning"  > <i class="fa fa-pencil " ></i>   Edit </a>
+
+
+                           <form class="d-inline" action="" method="post" >
+                              <a  href="#"    class="btn btn-danger" type="submit"   > <i class="fa fa-trash" ></i>  Delete </a>
+                           </form>
+                            </td>
+                     </tr>
+                  {% endfor %}
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>
+{% endblock %}
